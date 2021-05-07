@@ -27,7 +27,17 @@ void MainWindow::addTask()
         if (ok && not name.isEmpty())
                 {
                         auto* task = new Task(name);
+                        connect(task, &Task::removed,
+                                this, &MainWindow::removeTask);
+
                         m_tasks.append(task);
                         ui->tasksLayout->addWidget(task);
                 }
+}
+
+void MainWindow::removeTask(Task* task)
+{
+        m_tasks.removeOne(task);
+        ui->tasksLayout->removeWidget(task);
+        delete task;
 }

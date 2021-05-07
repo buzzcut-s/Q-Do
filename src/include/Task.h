@@ -24,6 +24,9 @@ public:
 public slots:
         void rename();
 
+signals:
+        void removed(Task* task);
+
 private:
         Ui::Task* ui;
 };
