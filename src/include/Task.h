@@ -1,6 +1,7 @@
 #ifndef TASK_H
 #define TASK_H
 
+#include <QString>
 #include <QWidget>
 
 namespace Ui
@@ -13,8 +14,12 @@ class Task : public QWidget
         Q_OBJECT
 
 public:
-        explicit Task(QWidget* parent = nullptr);
+        explicit Task(const QString& name, QWidget* parent = nullptr);
         ~Task();
+
+        void    setName(const QString& name);
+        QString name() const;
+        bool    isCompleted() const;
 
 private:
         Ui::Task* ui;
