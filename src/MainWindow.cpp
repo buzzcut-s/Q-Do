@@ -26,17 +26,17 @@ void MainWindow::addTask()
                                              tr("Task name"), QLineEdit::Normal,
                                              tr("Untitled task"), &ok);
         if (ok && not name.isEmpty())
-                {
-                        auto* task = new Task(name);
-                        connect(task, &Task::removed,
-                                this, &MainWindow::removeTask);
-                        connect(task, &Task::statusChanged,
-                                this, &MainWindow::taskStatusChanged);
+        {
+                auto* task = new Task(name);
+                connect(task, &Task::removed,
+                        this, &MainWindow::removeTask);
+                connect(task, &Task::statusChanged,
+                        this, &MainWindow::taskStatusChanged);
 
-                        m_tasks.append(task);
-                        ui->tasksLayout->addWidget(task);
-                        updateStatus();
-                }
+                m_tasks.append(task);
+                ui->tasksLayout->addWidget(task);
+                updateStatus();
+        }
 }
 
 void MainWindow::removeTask(Task* task)
@@ -56,10 +56,10 @@ void MainWindow::updateStatus()
 {
         int completedCount = 0;
         for (auto* t : m_tasks)
-                {
-                        if (t->isCompleted())
-                                completedCount++;
-                }
+        {
+                if (t->isCompleted())
+                        completedCount++;
+        }
         int todoCount = m_tasks.size() - completedCount;
 
         ui->statusLabel->setText(

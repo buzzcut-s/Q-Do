@@ -47,9 +47,9 @@ void Task::rename()
                                               tr("Task name"), QLineEdit::Normal,
                                               this->name(), &ok);
         if (ok && not value.isEmpty())
-                {
-                        setName(value);
-                }
+        {
+                setName(value);
+        }
 }
 
 void Task::checked(bool checked)
