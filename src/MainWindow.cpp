@@ -7,9 +7,15 @@ MainWindow::MainWindow(QWidget* parent) :
     ui(new Ui::MainWindow)
 {
         ui->setupUi(this);
+        connect(ui->addTaskButton, &QPushButton::clicked,
+                this, &MainWindow::addTask);
 }
 
 MainWindow::~MainWindow()
 {
         delete ui;
+}
+
+void MainWindow::addTask()
+{
 }
