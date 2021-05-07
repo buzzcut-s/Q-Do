@@ -20,8 +20,7 @@
       <item>
        <widget class="QLabel" name="statusLabel">
         <property name="text">
-         <string>Status: 0 todo / 0 done
-</string>
+         <string>Status: 0 todo / 0 done</string>
         </property>
        </widget>
       </item>
@@ -48,6 +47,9 @@
      </layout>
     </item>
     <item>
+     <layout class="QVBoxLayout" name="tasksLayout"/>
+    </item>
+    <item>
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -59,9 +61,6 @@
        </size>
       </property>
      </spacer>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="tasksLayout"/>
     </item>
    </layout>
   </widget>
