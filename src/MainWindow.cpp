@@ -1,5 +1,7 @@
 #include "include/MainWindow.h"
 
+#include <QInputDialog>
+
 #include "ui_MainWindow.h"
 
 MainWindow::MainWindow(QWidget* parent) :
@@ -18,7 +20,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::addTask()
 {
-        auto* task = new Task("Untitled task");
-        m_tasks.append(task);
-        ui->tasksLayout->addWidget(task);
+        bool    ok   = false;
+        QString name = QInputDialog::getText(this, tr("Add task"),
+                                             tr("Task name"), QLineEdit::Normal,
+                                             tr("Untitled task"), &ok);
+        if (ok && not name.isEmpty())
+                {
+                        auto* task = new Task(name);
+                        m_tasks.append(task);
+                        ui->tasksLayout->addWidget(task);
+                }
 }
