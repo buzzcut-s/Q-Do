@@ -55,7 +55,7 @@ void MainWindow::taskStatusChanged(Task*)
 void MainWindow::updateStatus()
 {
         int completedCount = 0;
-        for (auto* t : m_tasks)
+        for (const auto* t : qAsConst(m_tasks))
         {
                 if (t->isCompleted())
                         completedCount++;
