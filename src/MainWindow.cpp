@@ -56,7 +56,7 @@ void MainWindow::taskStatusChanged(Task*)
 
 void MainWindow::updateStatus()
 {
-        auto completedCount = std::count_if(m_tasks.begin(), m_tasks.end(),
+        auto completedCount = std::count_if(m_tasks.cbegin(), m_tasks.cend(),
                                             [](Task* t) { return t->isCompleted(); });
         auto todoCount      = m_tasks.size() - completedCount;
 
