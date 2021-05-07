@@ -18,4 +18,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::addTask()
 {
+        auto* task = new Task("Untitled task");
+        m_tasks.append(task);
+        ui->tasksLayout->addWidget(task);
 }
