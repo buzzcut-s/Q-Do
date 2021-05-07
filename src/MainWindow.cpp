@@ -1,5 +1,7 @@
 #include "include/MainWindow.h"
 
+#include <algorithm>
+
 #include <QInputDialog>
 
 #include "ui_MainWindow.h"
@@ -54,13 +56,9 @@ void MainWindow::taskStatusChanged(Task*)
 
 void MainWindow::updateStatus()
 {
-        int completedCount = 0;
-        for (const auto* t : qAsConst(m_tasks))
-        {
-                if (t->isCompleted())
-                        completedCount++;
-        }
-        int todoCount = m_tasks.size() - completedCount;
+        auto completedCount = std::count_if(m_tasks.begin(), m_tasks.end(),
+                                            [](Task* t) { return t->isCompleted(); });
+        auto todoCount      = m_tasks.size() - completedCount;
 
         ui->statusLabel->setText(
             QString("Status: %1 todo / %2 completed")
